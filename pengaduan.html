@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengaduan Layanan Masyarakat </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== ANIMATED BACKGROUND ORBS ===== -->
+    <div class="bg-effects">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- ===== TOAST CONTAINER ===== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">📋</div>
+                <span>PengaduanKu</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">Beranda</a></li>
+                <li><a href="#formSection">Lapor</a></li>
+                <li><a href="#reportsSection">Laporan </a></li>
+                <li><a href="#formSection" class="btn-lapor-nav">Lapor Sekarang</a></li>
+            </ul>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Layanan Pengaduan 24 Jam 
+            </div>
+            <h1>
+                Ada yang Rusak? <br/>
+                <span class="gradient-text">Laporin Aja!</span>
+            </h1>
+            <p>
+                Fasilitas umum rusak, jalan berlubang, lampu mati, atau sampah menumpuk?
+                Laporkan langsung dari HP-mu, biar cepat ditindaklanjuti!
+            </p>
+            <div class="hero-buttons">
+                <a href="#formSection" class="btn-primary">
+                    Lapor Sekarang
+                </a>
+                <a href="#reportsSection" class="btn-secondary">
+                    Lihat Laporan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORM SECTION ===== -->
+    <section id="formSection">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Yuk, <span class="highlight">Lapor Kerusakan!</span></h2>
+                <p>Isi data di bawah dengan lengkap biar tim kami bisa langsung tindak lanjut 🏃‍♂️💨</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="complaintForm" novalidate>
+                    <div class="form-grid">
+                        <!-- Nama -->
+                        <div class="form-group">
+                            <label>
+                                Nama Lengkap <span class="required">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="nama"
+                                name="nama"
+                                placeholder="Masukkan nama kamu..."
+                                required
+                            />
+                            <span class="error-message" id="namaError">Nama harus diisi ya!</span>
+                        </div>
+
+                        <!-- Lokasi -->
+                        <div class="form-group">
+                            <label>
+                                Lokasi / Fasilitas Umum <span class="required">*</span>
+                            </label>
+                            <select id="lokasi" name="lokasi" required>
+                                <option value="" disabled selected>Pilih lokasi 📍</option>
+                                <option value="Jalan Raya">Jalan Raya 🛣️</option>
+                                <option value="Trotoar / Pedestrian">Trotoar / Pedestrian 🚶</option>
+                                <option value="Taman Kota">Taman Kota 🌳</option>
+                                <option value="Lampu Jalan">Lampu Jalan 💡</option>
+                                <option value="Fasilitas Sekolah">Fasilitas Sekolah 🏫</option>
+                                <option value="Fasilitas Kesehatan">Fasilitas Kesehatan 🏥</option>
+                                <option value="Pasar / Terminal">Pasar / Terminal 🏪</option>
+                                <option value="Saluran Air / Drainase">Saluran Air / Drainase 🌊</option>
+                                <option value="Lainnya">Lainnya 📌</option>
+                            </select>
+                            <span class="error-message" id="lokasiError">Pilih lokasi kerusakan dulu! 😅</span>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="form-group full-width">
+                            <label>
+                                Deskripsi Kerusakan <span class="required">*</span>
+                            </label>
+                            <textarea
+                                id="deskripsi"
+                                name="deskripsi"
+                                placeholder="Ceritain detail kerusakannya di sini... misal: 'Jalan berlubang besar di depan pasar, udah 2 minggu gak diperbaiki 😩'"
+                                required
+                            ></textarea>
+                            <span class="error-message" id="deskripsiError">Deskripsi kerusakan wajib diisi! 📝</span>
+                        </div>
+
+                        <!-- Upload Foto -->
+                        <div class="form-group full-width">
+                            <label>
+                                Upload Foto 📸 <span style="font-weight:400;color:var(--text-dim);font-size:0.8rem;">(opsional)</span>
+                            </label>
+                            <div class="file-upload">
+                                <input type="file" id="foto" name="foto" accept="image/*" />
+                                <div class="file-upload-label">
+                                    <div class="file-icon">📷</div>
+                                    <div>
+                                        <div style="font-weight:500;">Klik untuk upload foto</div>
+                                        <div style="font-size:0.75rem;color:var(--text-dim);">Format: JPG, PNG, GIF — Maks 5MB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="file-name" id="fileName"></div>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-text">🚀 Kirim Laporan</span>
+                            <span class="spinner"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RECENT REPORTS SECTION ===== -->
+    <section id="reportsSection">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>📊 <span class="highlight">Laporan Terbaru</span></h2>
+                <p>Ini dia laporan dari warga-warga lain yang peduli sama fasilitas umum 💪🏽</p>
+            </div>
+
+            <div class="reports-grid" id="reportsGrid">
+                <!-- Cards akan di-render oleh JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>
+            Dibuat dengan <span class="footer-hearts">❤️</span> oleh Tim Pengaduan Masyarakat
+        </p>
+        <p>&copy; 2026 PengaduanKu — Suara Warga untuk Perubahan </p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
